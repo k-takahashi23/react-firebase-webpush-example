@@ -5,8 +5,7 @@
 1. Build and start
 
 ```bash
-$ yarn build
-$ yarn start:prod
+$ yarn start
 ```
 
 2. Debug in your browser

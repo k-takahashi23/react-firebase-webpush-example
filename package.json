@@ -18,9 +18,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start:dev": "NODE_ENV=production HTTPS=true react-scripts start",
-    "start:prod": "NODE_ENV=production HTTPS=true serve -s build",
     "build": "rm -rf ./build & react-scripts build",
+    "start": "yarn build & NODE_ENV=production HTTPS=true serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "browser": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost:5000 --allow-insecure-localhost --user-data-dir=/tmp"
