@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "firebase": "^8.6.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -17,10 +18,12 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start:dev": "NODE_ENV=production HTTPS=true react-scripts start",
+    "start:prod": "NODE_ENV=production HTTPS=true serve -s build",
+    "build": "rm -rf ./build & react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "browser": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost:5000 --allow-insecure-localhost --user-data-dir=/tmp"
   },
   "eslintConfig": {
     "extends": [
