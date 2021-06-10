@@ -4,9 +4,12 @@ export class ServiceWorkerUtility {
       throw new Error('serviceWorker does not exits in navigator!');
     }
 
-    const registrations = await navigator.serviceWorker.getRegistrations();
-    const serviceWorkerRegistration = registrations[0];
+    const serviceWorkerRegistration = await navigator.serviceWorker.getRegistration();
 
+    if (!serviceWorkerRegistration) {
+      throw new Error('Cannot get serviceWorkerRegistration!');
+    }
+    
     return serviceWorkerRegistration;
   }
 }
