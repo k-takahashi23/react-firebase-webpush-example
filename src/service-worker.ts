@@ -44,3 +44,8 @@ messaging.onBackgroundMessage((payload) => {
       body: payload.data.body,
     });
 });
+
+self.onnotificationclick = (event: NotificationEvent) => {
+  console.log('Invoked onnotificationclick! ', event);
+  event.notification.close();
+};

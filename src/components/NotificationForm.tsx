@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { firebase, messaging } from '../firebase/client';
 import { useEffectAsync } from '../hooks/useEffectAsync';
 import { FirebaseUtility } from '../utils/firebaseUtility';
-import { NotificationUtility } from '../utils/notificationUtility';
+import { NotificationPayload, NotificationUtility } from '../utils/notificationUtility';
 import { ServiceWorkerUtility } from '../utils/serviceWorkerUtility'
 
 interface Props {}
@@ -29,9 +29,9 @@ export const NotificationForm: React.FC<Props> = () => {
       NotificationUtility.requestPermission()
 
       messaging.onMessage(
-        (payload: any) => {
+        (payload: NotificationPayload) => {
           console.log('Invoked onMessage! ', payload)
-          const notification = NotificationUtility.createNotification(payload.notification);
+          const notification = NotificationUtility.createNotification(payload);
       
           serviceWorkerRegistration.showNotification(notification.title, notification.options);
         }
